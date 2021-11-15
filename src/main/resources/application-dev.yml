@@ -1,0 +1,13 @@
+Spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: wholesale
+        url: jdbc:postgresql://localhost:5432/wholesale
+        username: wholesale
+toggle:
+    accountLists:
+    - null
+    -   enabled: true
+    transactionLists:
+    - null
+    -   enabled: true

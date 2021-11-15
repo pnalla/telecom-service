@@ -1,0 +1,16 @@
+toggle:
+  phones:
+    1.enabled: true
+  customerPhones:
+    1.enabled: true
+  activatePhone:
+    1.enabled: true
+
+Spring:
+  flyway:
+    locations: classpath:db/testdata
+  datasource:
+    url: jdbc:postgresql://localhost:5432/telecom
+    username: telecom
+    password: telecom
+    driver-class-name: org.postgresql.Driver

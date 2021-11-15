@@ -1,0 +1,36 @@
+server:
+    port: 8090
+    servlet:
+        context-path: /telecom
+spring:
+    telecomService:
+        pageSize: 5000
+    application:
+        name: wholesale-app
+    datasource:
+        url: jdbc:postgresql://localhost:5432/telecom
+        username: telecom
+        password: telecom
+        driver-class-name: org.postgresql.Driver
+    flyway:
+        locations: classpath:db/migration
+        baseline-on-migrate: true
+        enabled: true
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+                temp:
+                    use_jdbc_metadata_defaults: false
+        show-sql: true
+toggle:
+  phones:
+    1.enabled: true
+  customerPhones:
+    1.enabled: true
+  activatePhone:
+    1.enabled: true

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: telecom
+      POSTGRES_PASSWORD: telecom
+      POSTGRES_DB: telecom
+    volumes:
+      - /var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
