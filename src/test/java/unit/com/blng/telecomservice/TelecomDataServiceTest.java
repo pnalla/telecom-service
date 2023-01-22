@@ -56,7 +56,6 @@ public class TelecomDataServiceTest {
   }
 
 
-  @Disabled
   @Test
   void getAllPhoneNumbers_shouldReturnList() {
     PageRequest pageRequest = PageRequest.of(0, 5);
@@ -78,7 +77,7 @@ public class TelecomDataServiceTest {
     DataNotFoundException dataNotFoundException = assertThrows(DataNotFoundException.class, () -> telecomDataService.getAllPhoneNumbers());
     assertAll("dataNotFoundException",
         () -> assertNotNull(dataNotFoundException),
-        () -> assertEquals("API-400", dataNotFoundException.getApiError().getErrorId()),
+        () -> assertEquals("API-404", dataNotFoundException.getApiError().getErrorId()),
         () ->  assertEquals("No data found", dataNotFoundException.getApiError().getMessage())
     );
   }
@@ -108,7 +107,7 @@ public class TelecomDataServiceTest {
     DataNotFoundException dataNotFoundException = assertThrows(DataNotFoundException.class, () -> telecomDataService.getPhoneDetailsForCustomer(customer));
     assertAll("dataNotFoundException",
         () -> assertNotNull(dataNotFoundException),
-        () -> assertEquals("API-400", dataNotFoundException.getApiError().getErrorId()),
+        () -> assertEquals("API-404", dataNotFoundException.getApiError().getErrorId()),
         () ->  assertEquals("No data found for this customer", dataNotFoundException.getApiError().getMessage())
     );
   }
@@ -119,7 +118,7 @@ public class TelecomDataServiceTest {
     DataNotFoundException dataNotFoundException = assertThrows(DataNotFoundException.class, () -> telecomDataService.activeCustomerPhoneNumber(PHONE_NUMBER));
     assertAll("dataNotFoundException",
         () -> assertNotNull(dataNotFoundException),
-        () -> assertEquals("API-400", dataNotFoundException.getApiError().getErrorId()),
+        () -> assertEquals("API-404", dataNotFoundException.getApiError().getErrorId()),
         () ->  assertEquals("No data found against this phone number", dataNotFoundException.getApiError().getMessage())
     );
   }

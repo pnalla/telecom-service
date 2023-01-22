@@ -67,7 +67,7 @@ public class TelecomDataServiceTest {
     DataNotFoundException dataNotFoundException = assertThrows(DataNotFoundException.class, () -> telecomDataService.getPhoneDetailsForCustomer(customer));
     assertAll("dataNotFoundException",
         () -> assertNotNull(dataNotFoundException),
-        () -> assertEquals("API-400", dataNotFoundException.getApiError().getErrorId()),
+        () -> assertEquals("API-404", dataNotFoundException.getApiError().getErrorId()),
         () ->  assertEquals("No data found for this customer", dataNotFoundException.getApiError().getMessage())
     );
   }
@@ -77,7 +77,7 @@ public class TelecomDataServiceTest {
     DataNotFoundException dataNotFoundException = assertThrows(DataNotFoundException.class, () -> telecomDataService.activeCustomerPhoneNumber("1720"));
     assertAll("dataNotFoundException",
         () -> assertNotNull(dataNotFoundException),
-        () -> assertEquals("API-400", dataNotFoundException.getApiError().getErrorId()),
+        () -> assertEquals("API-404", dataNotFoundException.getApiError().getErrorId()),
         () ->  assertEquals("No data found against this phone number", dataNotFoundException.getApiError().getMessage())
     );
   }

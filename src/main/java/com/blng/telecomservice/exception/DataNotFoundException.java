@@ -8,6 +8,6 @@ public class DataNotFoundException extends RuntimeException {
   private ApiError apiError;
   public DataNotFoundException(String msg) {
     super(msg);
-    this.apiError = ApiError.builder().errorId("API-400").message(msg).build();
+    this.apiError = ApiError.builder().errorId("API-404").message(msg).build();
   }
 }

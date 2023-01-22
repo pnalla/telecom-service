@@ -31,6 +31,10 @@ public class TelecomDataService {
   @Value("${spring.telecomService.pageSize:5000}")
   private int pageSize;
 
+  /**
+   * This method gets all the phone numbers in db.
+   * @return phoneList.
+   */
   public List<String> getAllPhoneNumbers() {
     int pagNbr = 0;
     Slice<String> phoneSlice;
@@ -52,6 +56,11 @@ public class TelecomDataService {
     return phoneList;
   }
 
+  /**
+   * This method gets phone details of a customer from db.
+   * @param customer Customer.
+   * @return response.
+   */
   public CustomerPhoneDetailResponse getPhoneDetailsForCustomer(Customer customer) {
     List<Phone> phoneList = phoneRepository.findByCustomer(customer);
     if (CollectionUtils.isEmpty(phoneList)) {
@@ -63,6 +72,10 @@ public class TelecomDataService {
     return customerPhoneDetailResponse;
   }
 
+  /**
+   * This method activates and saves a phone number in db.
+   * @param phoneNumber String.
+   */
   @Transactional
   public void activeCustomerPhoneNumber(String phoneNumber) {
     Phone phone = phoneRepository.findByPhoneNumber(phoneNumber);
